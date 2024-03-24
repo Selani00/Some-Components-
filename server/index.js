@@ -34,10 +34,34 @@ app.post("/create",async (req,res)=>{
     console.log(req.body);
     const data = new userModel(req.body);
     await data.save();
-    res.send({success: true, message : "Data saved"});
+    res.send({success: true, message : "Data saved", data: data});
 
 })
 
+// update data
+app.put("/update", async (req, res) => {
+    console.log(req.body);
+
+    const {id,...rest} = req.body;
+
+    const data = await userModel.updateOne({_id: req.body.id},rest)
+
+    res.send({success: true, message: "Data updated", data: data});
+
+})
+
+
+// delete data
+app.delete("/delete/:id", async (req, res) => {
+    const id= req.params.id;
+    console.log(id);
+    const data= await userModel.deleteOne({_id: id});
+    res.send({success: true, message: "Data Deleted", data: data});
+
+
+
+}
+)
 
 
 // 'mongodb+srv://pkselani00:HO6AnLMPiB7C20dM@crud-table.sys6a7y.mongodb.net/CRUD-table?retryWrites=true&w=majority&appName=crud-table'
