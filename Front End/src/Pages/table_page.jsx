@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Form from "../Components/form";
 
+
 axios.defaults.baseURL = "http://localhost:8080";
 
 const table_page = () => {
@@ -16,7 +17,7 @@ const table_page = () => {
     name: "",
     email: "",
     mobile: "",
-    id: "",
+    _id: "",
   });
 
   const [dataList, setDataList] = useState([]);
@@ -58,22 +59,33 @@ const table_page = () => {
     }
   };
 
-  const handleUpdate = async (id) => {};
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    const data = await axios.put("/update" + formDataEdit);
+    console.log(data);
+    if (data.data.success) {
+      alert(data.data.message);
+      setEditSection(false);
+      getFetchData();
+      
+    }
 
-  const handleEditOnChange = async (id) => {
+  };
+
+  const handleEditOnChange = async (e) => {
     const { value, name } = e.target;
     setFormDataEdit((preve) => {
       return {
         ...preve,
         [name]: value,
+        
       };
     });
   };
 
   const handleEdit = (el) => {
     setFormDataEdit(el);
-    setEditSection(true);
-    
+    setEditSection(true);   
   };
 
   useEffect(() => {
