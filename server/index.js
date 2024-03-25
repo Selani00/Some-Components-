@@ -39,6 +39,18 @@ app.post("/create",async (req,res)=>{
 })
 
 // update data
+/*
+// http://localhost:8080/update
+{
+    "id": "",
+    "name": "",
+    "email": "",
+    "mobile": ""
+}
+
+
+*/
+
 app.put("/update", async (req, res) => {
     console.log(req.body);
 
@@ -52,6 +64,8 @@ app.put("/update", async (req, res) => {
 
 
 // delete data
+
+// http://localhost:8080/delete/id
 app.delete("/delete/:id", async (req, res) => {
     const id= req.params.id;
     console.log(id);
