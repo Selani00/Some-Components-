@@ -1,8 +1,9 @@
 import React from 'react'
 
-const form = ({handleOnChange,handleSubmit}) => {
+const form = ({handleOnChange,handleSubmit,handleClose, rest}) => {
   return (
-    <form className="max-w-sm mx-auto p-5">
+    <form className="max-w-sm mx-auto p-5 bg-white shadow-lg border">
+        <button className='ml-auto' onClick={handleClose}>X</button>
         <div className="mb-5">
           <label
             for="email"
@@ -16,8 +17,8 @@ const form = ({handleOnChange,handleSubmit}) => {
             name = "email"
             className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
             placeholder="name@flowbite.com"
-            required
-            onChange={handleOnChange}
+         
+            onChange={handleOnChange} value={rest.email}
           />
         </div>
         <div className="mb-5">
@@ -32,8 +33,8 @@ const form = ({handleOnChange,handleSubmit}) => {
             id="name"
             name = "name"
             className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-            required
-            onChange={handleOnChange}
+        
+            onChange={handleOnChange} value={rest.name}
           />
         </div>
         <div className="mb-5">
@@ -48,8 +49,8 @@ const form = ({handleOnChange,handleSubmit}) => {
             id="mobile"
             name = "mobile"
             className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-            required
-            onChange={handleOnChange}
+         
+            onChange={handleOnChange} value={rest.mobile}
           />
         </div>
         <button
