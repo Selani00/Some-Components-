@@ -1,11 +1,11 @@
-import Model_page from './Pages/model_page'
-import Table_page from './Pages/table_page'
+import WeatherMain from './Pages/WeatherMain';
+
 
 function App() {
   
   return (
     <>
-      <Model_page />
+      <WeatherMain />
     </>
   );
 }
