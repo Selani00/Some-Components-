@@ -5,7 +5,7 @@ function App() {
   
   return (
     <>
-      <Table_page />
+      <Model_page />
     </>
   );
 }
